@@ -8,7 +8,7 @@ changelog:
 author_name: Justin Kumpe
 author_email: jakumpe@kumpes.com
 # whether to release on PyPi. True by default
-pypi: true
+pypi: false
 # list of labels to be put on issues and PRs created by bot
 labels:
   - bot
