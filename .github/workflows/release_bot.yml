@@ -11,6 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
+    - name: Update Pip
+      run: curl https://bootstrap.pypa.io/get-pip.py | python
+      
     - name: Install Release-Bot
       run: pip install release-bot
       
