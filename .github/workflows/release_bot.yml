@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v1
     
     - name: Install Release-Bot
-      run: pip install release-bot
+      run: aurman -S release-bot
       
     - name: Run Release Bot
       run: |
