@@ -1,9 +1,7 @@
-name: deploy_to_cocoapods
+name: release_bot
 
 on:
   push:
-    tags:
-      - '*'
 
 jobs:
   build:
@@ -13,14 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
-    - name: Install Cocoapods
-      run: gem install cocoapods
+    - name: Install Release-Bot
+      run: pip install release-bot
       
-    - name: Deploy to Cocoapods
+    - name: Run Release Bot
       run: |
-        set -eo pipefail
-        export LIB_VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
-        pod lib lint --allow-warnings
-        pod trunk push --allow-warnings
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        release-bot -c https://github.com/justinkumpe/workflowTest/.github/workflows/config.yml
