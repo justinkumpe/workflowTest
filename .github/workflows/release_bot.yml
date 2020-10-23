@@ -6,13 +6,13 @@ on:
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: debian-latest
 
     steps:
     - uses: actions/checkout@v1
     
     - name: Install Release-Bot
-      run: aurman -S release-bot
+      run: pip install release-bot
       
     - name: Run Release Bot
       run: |
